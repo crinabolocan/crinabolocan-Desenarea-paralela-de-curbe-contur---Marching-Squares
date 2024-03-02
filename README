@@ -1,0 +1,21 @@
+Bolocan Crina-Maria 331CB
+
+Tema 1-APD
+
+    Am pornit de la analiza variantei secventiale si am ales sa 
+paralizez functiile sample_grid, march si rescale_image.
+    Am folosit o structura pentru a trimite datele catre thread-uri.
+    In functia f, am extras datele din structura , am calculat 
+de unde incepe si unde se termina fiecare thread pentru a face 
+rescale mai intai. Paralelizarea am facut-o in bucla exterioara 
+si am pastrat calculele din varinata secventiala. Se redimensioneaza 
+imaginea doar daca este nevoie, si bariera asteapta sa se termine 
+toate thread-urile pentru a nu distorsiona imaginea, intr-un final 
+imaginea noua fiind cea redimensionata. 
+Apoi, se recalculeaza start-ul si end-ul pentru pentru sample_grid 
+si march, am ales la fel sa paralizez bucla exterioara. Image este 
+cu pointer pentru a se pastra modificarile facute.
+    In functia main, am facut initializarile, am citit imaginea, am alocat 
+grid-ul, structura, noua imagine redimensionata, bariera si apoi 
+am creat thread-urile si am asteptat sa se termine. Am scris 
+imaginea finala si am eliberat memoria alocata. 
